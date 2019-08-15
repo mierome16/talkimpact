@@ -1,13 +1,16 @@
 function init(io) {
+const users=[]
+
   io.on('connection', function (socket) {
-    console.log('socket is connected')
-    console.log(socket.id)
-
-    socket.on('name', name => {
-      console.log(name)
-
-      io.emit('new person', name)
-    })
+    socket.on('login', username => {
+      const user = {
+        username: username,
+        id: socket.id
+      }
+    }) 
+    users.push(user)
+    console.log(users)
+    io.emit('new user', socket )
   })
 }
 
