@@ -1,5 +1,11 @@
 function init(io) {
-const users=[]
+  let users=[]
+  let rooms=[]
+
+
+  function logout(id){
+    users = users.filter(user => user.id !== id)
+  }
 
   io.on('connection', function (socket) {
     socket.on('login', username => {
@@ -7,10 +13,44 @@ const users=[]
         username: username,
         id: socket.id
       }
-    }) 
-    users.push(user)
-    console.log(users)
-    io.emit('new user', socket )
+
+      users.push(user)
+      socket.join('general')
+      // io.emit('new user', socket )
+
+      if (rooms.filter(room => room.name === 'general').length === 0) {
+        rooms.push({
+          name: 'general',
+          users: [user]
+        })
+      } else {
+        rooms.find(room => room.name === 'general').users.push(user)
+      }
+    
+      io.to('general').emit('new user', {
+        room: 'general',
+        user: user
+      })
+    })
+
+
+    socket.on('join', room => {
+      socket.join(room)
+    })
+
+    socket.on('new message', message => {
+      console.log(message)
+      io.to(message.room).emit('new message', message)
+      //tried message.text
+    })
+
+    socket.on('logout', () => {
+      logout(socket.id)
+    })
+
+    socket.on('disconnect', () => {
+      logout(socket.id)
+    })
   })
 }
 

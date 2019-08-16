@@ -13,6 +13,14 @@
     width: 100%;
     background: rgba(0,0,0,.5)
 }
+.loginpage header h2 {
+    color: white;
+    margin-top: 0;
+    padding-top: 20px;
+    padding-left: 25px;
+    font-weight: 200;
+    font-family: 'PT Sans', sans-serif;
+}
 .logincontainer {
     width: 1000px;
     height: 500px;
@@ -31,6 +39,7 @@
     position: relative;
     right: 50%;
     top: 15%;
+    border: 2px solid navy;
 }
 .logintitle {
     font-size: 45px;
@@ -40,6 +49,7 @@
     margin-top: 160px;
     letter-spacing: 3px;
     color: white;
+    text-shadow: 2px 2px 4px #000000
 }
 .usernameinput {
     width: 350px;

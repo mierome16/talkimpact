@@ -18,7 +18,7 @@ const authorized = useSelector(appState => appState.authReducer.authorized)
         authorized ? <Redirect to="/general"></Redirect> :
         <div className="loginpage">
              <header>
-                    
+                <h2>devDiscuss( )</h2>
             </header>
             <div className="logincontainer">
                 <img className="loginlogo"src='https://t3.ftcdn.net/jpg/01/20/04/80/240_F_120048024_wcshlHob8rAq3HpKn5rjcCYKXRMpmALY.jpg'></img>
