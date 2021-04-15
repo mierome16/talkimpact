@@ -11,9 +11,9 @@ export default props => {
 
     return (
             <div className="messages">
-                <header id="messageheader">
-                    {/* message room  */}
-                </header>
+                {/* <header id="messageheader">
+                    message room 
+                </header> */}
                 
                 {messages.map((message, i) => {
                     const regex = /(https?:\/\/.*\.(?:png|jpg|gif))/i
@@ -25,7 +25,7 @@ export default props => {
                         <div className="msgwimg">
                             <div className="singlemsg" key={`message${i}`}>
                                 <h3 className="nametime"><img className="userpic"src="https://urbandsm.com/forum/styles/FLATBOOTS/theme/images/user4.png"></img><span className="name">{message.username}</span> <span className="time">{moment(message.time).fromNow()}</span> </h3>
-                                <p><Linkify>{message.text}</Linkify></p>
+                                <p style={message.style}><Linkify>{message.text}</Linkify></p>
                             </div>
                             {img ? <div className="msgimg" >{img}</div> : ''}
                         </div>

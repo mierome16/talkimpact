@@ -1,6 +1,10 @@
 import store from '../store'
 import socket from '../socket'
 
+if (localStorage.getItem('username')){
+  login(localStorage.getItem('username'))
+}
+
 if(localStorage.getItem('username')) {
   store.dispatch({
     type: 'LOGIN',

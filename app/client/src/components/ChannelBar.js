@@ -1,9 +1,13 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/chatroom.css'
+import { join } from '../actions/chat.actions'
 
 export default props => {
 
+    // useEffect(() => {
+    //     join(props.match.params.roomname)
+    // }, props.match.params)
 
     return (
         <div className="channels">

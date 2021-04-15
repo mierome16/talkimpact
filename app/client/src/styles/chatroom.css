@@ -96,14 +96,16 @@
 }
 .channels{
     width: 290px;
-    height: 645px;
-    background: rgba(50, 50, 50, 0.8);
+    flex-basis: 1;
+    background: rgb(150,30,54);
+    background: linear-gradient(0deg, rgba(150,30,54,1) 45%, rgba(79,84,162,1) 77%);
     margin-top: 20px;
 }
 .usersbar {
     width: 290px;
-    height: 645px;
-    background: rgba(50, 50, 50, 0.8);
+    flex-basis: 1;
+    background: rgb(150,30,54);
+    background: linear-gradient(0deg, rgba(150,30,54,1) 45%, rgba(79,84,162,1) 77%);
     margin-top: 20px;
 }
 .userpic {
@@ -130,4 +132,15 @@ a {
 }
 .msgwimg {
     border-bottom: 1px solid rgb(200,200,200);
+}
+textarea {
+    border: none;
+    overflow: auto;
+    outline: none;
+    height: 45px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    resize: none; /*remove the resize handle on the bottom right*/
 }
